@@ -1,0 +1,14 @@
+# Machine-specific configuration
+controller-config.json
+.env
+.env.*
+!.env.example
+
+# Runtime state, logs, process IDs, and temporary public URLs
+runtime/
+
+# Common local/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,33 @@
+{
+  "displayName": "My Web Application",
+  "environmentFiles": [".env.local"],
+  "web": {
+    "name": "Web",
+    "mode": "static",
+    "root": "C:\\path\\to\\dist",
+    "host": "127.0.0.1",
+    "port": 8088,
+    "spaFallback": true,
+    "accessPasswordEnv": "WEB_ACCESS_PASSWORD",
+    "healthTimeoutSeconds": 30
+  },
+  "services": [
+    {
+      "id": "api",
+      "name": "API",
+      "command": "node",
+      "args": ["src/index.js"],
+      "workingDirectory": "C:\\path\\to\\api",
+      "environmentFiles": [".env.local"],
+      "environment": { "HOST": "127.0.0.1", "PORT": "8090" },
+      "healthUrl": "http://127.0.0.1:8090/health",
+      "healthTimeoutSeconds": 60
+    }
+  ],
+  "tunnel": {
+    "enabled": true,
+    "target": "http://127.0.0.1:8088",
+    "timeoutSeconds": 30
+  }
+}
+
